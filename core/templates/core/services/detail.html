@@ -9,6 +9,8 @@
                 <ol class="flex items-center gap-2 text-base-content/70">
                     <li><a href="/" class="link link-hover">Home</a></li>
                     <li aria-hidden="true" class="opacity-50">/</li>
+                    <li><a href="{% url 'services_list' %}" class="link link-hover">Services</a></li>
+                    <li aria-hidden="true" class="opacity-50">/</li>
                     <li class="text-base-content">{{ object.title }}</li>
                 </ol>
             </nav>
