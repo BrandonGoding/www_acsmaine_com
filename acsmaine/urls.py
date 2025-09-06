@@ -20,5 +20,8 @@ from core import views as website_views
 
 urlpatterns = [
     path('', website_views.HomeView.as_view(), name='home'),
+    path("services/pools-saunas/", website_views.service_pools_saunas, name="service_pools_saunas"),
     path('admin/', admin.site.urls),
 ]
+
+
