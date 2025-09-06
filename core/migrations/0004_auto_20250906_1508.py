@@ -28,7 +28,7 @@ def add_solar_service(apps, schema_editor):
                 "everything from panel connections and inverters to battery storage and system integration. Our focus "
                 "is on safety, system longevity, and making sure you get the most out of your solar investment."
             ),
-            "image": None,  # set later if you have one in /media/services/
+            "image": "img/solar-electrical-systems.png",
         },
     )
 

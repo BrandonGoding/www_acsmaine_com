@@ -23,5 +23,5 @@ class ServiceDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['services'] = Service.objects.all()
+        context['services'] = Service.objects.filter().exclude(id=self.object.id)
         return context

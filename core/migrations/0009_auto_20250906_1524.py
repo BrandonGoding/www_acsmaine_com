@@ -27,7 +27,7 @@ def add_electric_heat_service(apps, schema_editor):
                 "install it properly, and wire it for safety and performance. You get a heating solution that’s "
                 "low-maintenance, affordable, and built to last."
             ),
-            "image": None,
+            "image": 'img/electrical-heat-installations.png',
         },
     )
 

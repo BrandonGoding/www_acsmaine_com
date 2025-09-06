@@ -29,7 +29,7 @@ def add_wiring_new_builds_remodels(apps, schema_editor):
                 "your electrical system supports your goals and passes inspection the first time."
             ),
             # No image provided in the snippet; leave null/blank per model definition
-            "image": None,
+            "image": "img/wiring-new-buildings-remodels.png",
         },
     )
 

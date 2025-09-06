@@ -28,7 +28,7 @@ def add_lighting_service(apps, schema_editor):
                 "lighting for driveways and entrances. With ACS Maine, your lighting is thoughtfully planned, "
                 "professionally installed, and future-ready."
             ),
-            "image": None,
+            "image": 'img/interior-exterior-building-lighting.png',
         },
     )
 

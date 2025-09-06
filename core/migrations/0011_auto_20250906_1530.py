@@ -27,7 +27,7 @@ def add_generators_transfer_switch_service(apps, schema_editor):
                 "install the proper wiring and transfer switch, and ensure your system is ready when the power goes "
                 "out. We provide clean, code-compliant installations that protect your property and your peace of mind."
             ),
-            "image": None,
+            "image": "img/generator-and-transfer-switch-installs.png",
         },
     )
 

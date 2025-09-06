@@ -28,7 +28,7 @@ def add_design_build_service(apps, schema_editor):
                 "integrated process helps reduce costs, avoid delays, and ensure your electrical system is perfectly "
                 "matched to your needs — today and into the future."
             ),
-            "image": None,
+            "image": 'img/design-build-electrical.png',
         },
     )
 

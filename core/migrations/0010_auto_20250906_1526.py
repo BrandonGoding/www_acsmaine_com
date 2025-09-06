@@ -27,7 +27,7 @@ def add_fuse_to_breaker_service(apps, schema_editor):
                 "electrical fires, reduce maintenance headaches, and increase the overall value of your home or "
                 "commercial property."
             ),
-            "image": None,
+            "image": "img/fuse-to-circuit-breaker-upgrades.png",
         },
     )
 

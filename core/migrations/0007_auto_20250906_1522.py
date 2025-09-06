@@ -27,7 +27,7 @@ def add_appliance_installations_service(apps, schema_editor):
                 "electrical upgrades, and install your appliance safely and efficiently. We handle everything from "
                 "ovens and dryers to dishwashers and electric ranges — with no shortcuts."
             ),
-            "image": None,
+            "image": "img/appliance-installations.png",
         },
     )
 

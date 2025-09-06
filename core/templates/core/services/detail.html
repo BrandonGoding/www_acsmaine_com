@@ -91,7 +91,7 @@
                        {% for service in services %}
                       <div class="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-xs focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-indigo-600 hover:border-gray-400 dark:border-white/10 dark:bg-gray-800/50 dark:shadow-none dark:focus-within:outline-indigo-500 dark:hover:border-white/25">
                         <div class="shrink-0">
-                          <img src="{% static 'img/pool-and-j.png' %}" alt="" class="size-10 rounded-full bg-gray-300 outline -outline-offset-1 outline-black/5 dark:bg-gray-700 dark:outline-white/10" />
+                          <img src="{% static service.image %}" alt="" class="size-10 rounded-full bg-gray-300 outline -outline-offset-1 outline-black/5 dark:bg-gray-700 dark:outline-white/10" />
                         </div>
                         <div class="min-w-0 flex-1">
                           <a href="{% url 'services_detail' service.slug %}" class="focus:outline-hidden">
@@ -103,7 +103,6 @@
                       </div>
                         {% endfor %}
                     </div>
-                    <img src="{% static  object.image  %}" alt="Pool and Jacuzzi Electrical Work" class="rounded-lg shadow-lg mt-5"/>
                 </div>
             </div>
         </div>

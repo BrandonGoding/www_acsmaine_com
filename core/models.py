@@ -14,6 +14,9 @@ class Service(models.Model):
     def __str__(self):
         return self.title
 
+    class Meta:
+        ordering = ['title']
+
 
 class BulletPoint(models.Model):
     service = models.ForeignKey(Service, related_name='bullet_points', on_delete=models.CASCADE)

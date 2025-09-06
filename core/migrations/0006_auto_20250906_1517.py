@@ -28,7 +28,7 @@ def add_knob_and_tube_service(apps, schema_editor):
                 "ensuring your home is safer, your insurance coverage is secure, and your electrical system is ready "
                 "for modern life."
             ),
-            "image": None,
+            "image": "img/knob-and-tube-wiring-replacement.png",
         },
     )
 
