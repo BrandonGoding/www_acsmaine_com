@@ -1,0 +1,168 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main_content %}
+
+
+<!-- HERO -->
+<section class="bg-base-100">
+  <div class="max-w-7xl mx-auto px-6 py-16 grid lg:grid-cols-2 gap-12 items-center">
+    <div>
+      <p class="inline-flex items-center gap-3 text-sm text-primary font-medium mb-4">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="h-5 w-5 text-primary">
+        <path fill-rule="evenodd" d="M12.723 2.116a.75.75 0 01.53.92l-1.237 5.154h5.234a.75.75 0 01.565 1.226l-9 11a.75.75 0 01-1.306-.671l1.238-5.154H3.75a.75.75 0 01-.565-1.226l9-11a.75.75 0 01.538-.249z" clip-rule="evenodd" />
+        </svg>
+        Pride in Professionalism, Quality and Service
+      </p>
+      <h1 class="text-4xl md:text-5xl font-bold leading-tight">
+        <span class="block">ACS Electrical Contractors</span>
+      </h1>
+      <p class="mt-6 text-lg text-base-content/80">
+        “ACS Electrical Contractors delivers expert residential and commercial electrical services in the Lewiston–Auburn area of Maine. As your local, licensed, and insured electricians, we provide safe, reliable, and high‑quality solutions tailored to your needs.”
+      </p>
+
+      <div class="mt-8 flex flex-wrap items-center gap-4">
+        <a href="tel:12077823001" class="btn btn-primary">
+          Urgent Contact: (207) 782‑3001
+        </a>
+        <a href="#services" class="btn btn-ghost">Our Services</a>
+      </div>
+
+      <!-- quick value bullets -->
+      <ul class="mt-8 grid sm:grid-cols-2 gap-3 text-base-content/80">
+        <li class="flex items-center gap-3"><svg class="h-5 w-5 fill-current text-success" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></svg><span><strong>Experienced Team</strong></span></li>
+        <li class="flex items-center gap-3"><svg class="h-5 w-5 fill-current text-success" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></svg><span><strong>Comprehensive Services</strong></span></li>
+        <li class="flex items-center gap-3"><svg class="h-5 w-5 fill-current text-success" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></svg><span><strong>Local & Trusted</strong></span></li>
+        <li class="flex items-center gap-3"><svg class="h-5 w-5 fill-current text-success" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></svg><span><strong>Safety First</strong></span></li>
+      </ul>
+    </div>
+
+    <div class="relative">
+      <img src="{% static 'img/hero-electrician.png' %}" alt="Electricians at work" class="rounded-2xl shadow-xl w-full"/>
+      <div class="absolute -bottom-6 -right-4 bg-base-200 rounded-xl p-4 shadow-md hidden md:flex items-center gap-3">
+        <div class="avatar placeholder"><div class="bg-primary text-primary-content rounded-full w-10">30+</div></div>
+        <div class="text-sm leading-tight"><span class="font-semibold">Years of experience</span><br/><span class="text-base-content/70">Lewiston–Auburn & beyond</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="bg-base-200">
+  <div class="max-w-7xl mx-auto px-6 py-16">
+    <div class="max-w-2xl">
+      <p class="inline-flex items-center gap-3 text-sm text-primary font-medium mb-3">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="h-5 w-5 text-primary">
+        <path fill-rule="evenodd" d="M12.723 2.116a.75.75 0 01.53.92l-1.237 5.154h5.234a.75.75 0 01.565 1.226l-9 11a.75.75 0 01-1.306-.671l1.238-5.154H3.75a.75.75 0 01-.565-1.226l9-11a.75.75 0 01.538-.249z" clip-rule="evenodd" />
+        </svg>
+        Our Electrical Services
+      </p>
+      <h2 class="text-3xl md:text-4xl font-bold">Expert, reliable, and safe solutions</h2>
+      <p class="mt-3 text-base-content/80">At <strong>ACS Electrical Contractors</strong>, we provide expert, reliable, and safe electrical solutions for residential, commercial, and industrial needs across Maine.</p>
+    </div>
+
+    <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Each service card -->
+      <a class="card bg-base-100 shadow hover:shadow-lg transition" href="/services/design-build/">
+        <div class="card-body">
+          <h3 class="card-title">Design‑Build Electrical Projects</h3>
+          <p>From concept to completion, we handle all aspects of custom electrical design and installation.</p>
+        </div>
+      </a>
+      <a class="card bg-base-100 shadow hover:shadow-lg transition" href="/services/new-electrical-services/">
+        <div class="card-body">
+          <h3 class="card-title">New Electrical Services</h3>
+          <p>Install brand‑new systems that meet current code and performance standards.</p>
+        </div>
+      </a>
+      <a class="card bg-base-100 shadow hover:shadow-lg transition" href="/services/fuse-to-breaker-upgrades/">
+        <div class="card-body">
+          <h3 class="card-title">Fuse → Breaker Upgrades</h3>
+          <p>Upgrade old fuse boxes to modern circuit breaker panels for safety and reliability.</p>
+        </div>
+      </a>
+      <a class="card bg-base-100 shadow hover:shadow-lg transition" href="/services/knob-and-tube-replacement/">
+        <div class="card-body">
+          <h3 class="card-title">Knob & Tube Replacement</h3>
+          <p>Safely replace outdated wiring to handle today’s electrical load demands.</p>
+        </div>
+      </a>
+      <a class="card bg-base-100 shadow hover:shadow-lg transition" href="/services/wiring-new-builds-remodels/">
+        <div class="card-body">
+          <h3 class="card-title">Wiring — New Builds & Remodels</h3>
+          <p>Complete wiring services tailored to your new construction or renovation.</p>
+        </div>
+      </a>
+      <a class="card bg-base-100 shadow hover:shadow-lg transition" href="/services/generators-transfer-switches/">
+        <div class="card-body">
+          <h3 class="card-title">Generators & Transfer Switches</h3>
+          <p>Professional generator and transfer switch installation for dependable backup power.</p>
+        </div>
+      </a>
+      <a class="card bg-base-100 shadow hover:shadow-lg transition" href="/services/solar-systems/">
+        <div class="card-body">
+          <h3 class="card-title">Solar Electrical Systems</h3>
+          <p>On‑grid or off‑grid designs customized to your property and goals.</p>
+        </div>
+      </a>
+      <a class="card bg-base-100 shadow hover:shadow-lg transition" href="/services/appliance-installations/">
+        <div class="card-body">
+          <h3 class="card-title">Appliance Installations</h3>
+          <p>Safe, code‑compliant installs for major appliances and specialized equipment.</p>
+        </div>
+      </a>
+      <a class="card bg-base-100 shadow hover:shadow-lg transition" href="/services/lighting/">
+        <div class="card-body">
+          <h3 class="card-title">Interior & Exterior Lighting</h3>
+          <p>Brighten and secure your property with efficient, long‑lasting lighting solutions.</p>
+        </div>
+      </a>
+      <a class="card bg-base-100 shadow hover:shadow-lg transition" href="/services/electric-heat/">
+        <div class="card-body">
+          <h3 class="card-title">Electric Heat Installations</h3>
+          <p>Energy‑efficient electric heating systems for comfort and cost savings.</p>
+        </div>
+      </a>
+      <a class="card bg-base-100 shadow hover:shadow-lg transition" href="/services/pools-saunas/">
+        <div class="card-body">
+          <h3 class="card-title">Sauna, Pool & Jacuzzi Electrical</h3>
+          <p>Specialized wiring and safety installations for wet and high‑moisture environments.</p>
+        </div>
+      </a>
+      <a class="card bg-base-100 shadow hover:shadow-lg transition" href="/services/fixtures-lamps/">
+        <div class="card-body">
+          <h3 class="card-title">New Lamps & Fixtures</h3>
+          <p>Expert installation of functional and decorative fixtures to enhance your space.</p>
+        </div>
+      </a>
+    </div>
+
+    <div class="mt-10 flex flex-wrap gap-4">
+      <a href="/team/" class="btn btn-primary">Meet the Team</a>
+      <a href="tel:12072526462" class="btn btn-outline">Call us: (207) 252‑6462</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE ARE -->
+<section class="bg-base-100">
+  <div class="max-w-7xl mx-auto px-6 py-16 grid lg:grid-cols-2 gap-12 items-start">
+    <div>
+      <p class="inline-flex items-center gap-3 text-sm text-primary font-medium mb-3">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="h-5 w-5 text-primary">
+        <path fill-rule="evenodd" d="M12.723 2.116a.75.75 0 01.53.92l-1.237 5.154h5.234a.75.75 0 01.565 1.226l-9 11a.75.75 0 01-1.306-.671l1.238-5.154H3.75a.75.75 0 01-.565-1.226l9-11a.75.75 0 01.538-.249z" clip-rule="evenodd" />
+        </svg>
+        WHO WE ARE
+      </p>
+      <h2 class="text-3xl md:text-4xl font-bold">Delivering Safe, Reliable, and Accessible Electrical Solutions</h2>
+      <p class="mt-4 text-base-content/80">At <strong>ACS Electrical Contractors</strong>, we’re proud to serve Auburn, Lewiston, and surrounding Maine communities with expert electrical solutions built on professionalism, quality, and trust. With over 30 years of local experience, our fully licensed and insured team is dedicated to delivering safe, reliable, and efficient electrical services for homes, businesses, and industries alike.</p>
+      <div class="mt-8">
+        <a class="btn btn-primary" href="/contact/">Request a Quote</a>
+      </div>
+    </div>
+    <div class="grid sm:grid-cols-2 gap-6">
+      <img src="{% static 'img/who-we-are-1.png' %}" alt="Technician wiring a panel" class="rounded-xl shadow"/>
+      <img src="{% static 'img/who-we-are-2.png' %}" alt="Lighting installation" class="rounded-xl shadow"/>
+    </div>
+  </div>
+</section>
+{% endblock %}
