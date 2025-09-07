@@ -12,6 +12,7 @@ def add_generators_transfer_switch_service(apps, schema_editor):
         slug=slug,
         defaults={
             "title": "Generators & Transfer Switch Installation",
+            "subtitle": "Professional generator and transfer switch installation for dependable backup power.",
             "intro_heading": "Generator and Transfer Switch Installation in Maine",
             "intro_body": (
                 "Power outages in Maine can happen any time of year — from summer storms to winter ice. "

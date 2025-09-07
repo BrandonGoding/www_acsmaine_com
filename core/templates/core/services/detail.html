@@ -89,15 +89,15 @@
                 <div class="lg:col-start-3">
                     <div class="grid grid-cols-1 gap-4 sm:grid-cols-1">
                        {% for service in services %}
-                      <div class="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-xs focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-indigo-600 hover:border-gray-400 dark:border-white/10 dark:bg-gray-800/50 dark:shadow-none dark:focus-within:outline-indigo-500 dark:hover:border-white/25">
+                      <div class="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-xs focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-indigo-600 hover:border-gray-400">
                         <div class="shrink-0">
-                          <img src="{% static service.image %}" alt="" class="size-10 rounded-full bg-gray-300 outline -outline-offset-1 outline-black/5 dark:bg-gray-700 dark:outline-white/10" />
+                          <img src="{% static service.image %}" alt="" class="size-10 rounded-full bg-gray-300 outline -outline-offset-1 outline-black/5" />
                         </div>
                         <div class="min-w-0 flex-1">
                           <a href="{% url 'services_detail' service.slug %}" class="focus:outline-hidden">
                             <span aria-hidden="true" class="absolute inset-0"></span>
-                            <p class="text-sm font-medium text-gray-900 dark:text-white">{{ service.title }}</p>
-                            <p class="truncate text-sm text-gray-500 dark:text-gray-400">{{ service.subtitle }}</p>
+                            <p class="text-sm font-medium text-gray-900">{{ service.title }}</p>
+                            <p class="truncate text-sm text-gray-500">{{ service.subtitle }}</p>
                           </a>
                         </div>
                       </div>

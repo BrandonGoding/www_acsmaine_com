@@ -12,6 +12,7 @@ def add_appliance_installations_service(apps, schema_editor):
         slug=slug,
         defaults={
             "title": "Appliance Installations",
+            "subtitle": "Safe, code‑compliant installs for major appliances and specialized equipment.",
             "intro_heading": "Safe and Professional Appliance Installations in Maine",
             "intro_body": (
                 "When it comes to installing major appliances, proper electrical connections are critical to safety "

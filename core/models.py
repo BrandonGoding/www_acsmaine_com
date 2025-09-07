@@ -4,6 +4,7 @@ from django.db import models
 # Create your models here.
 class Service(models.Model):
     title = models.CharField(max_length=200)
+    subtitle = models.CharField(max_length=200)
     slug = models.SlugField(unique=True)
     intro_heading = models.CharField(max_length=200)
     intro_body = models.TextField()

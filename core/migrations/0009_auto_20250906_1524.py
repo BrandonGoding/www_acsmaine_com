@@ -12,6 +12,7 @@ def add_electric_heat_service(apps, schema_editor):
         slug=slug,
         defaults={
             "title": "Electric Heat Installations",
+            "subtitle": "Energy‑efficient electric heating systems for comfort and cost savings.",
             "intro_heading": "Professional Electric Heat Installation in Maine",
             "intro_body": (
                 "At ACS Electrical Contractors, we provide reliable, energy-efficient electric heat installation for "

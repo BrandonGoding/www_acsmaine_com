@@ -12,6 +12,7 @@ def add_design_build_service(apps, schema_editor):
         slug=slug,
         defaults={
             "title": "Design-Build Electrical Projects",
+            "subtitle": "From concept to completion, we handle all aspects of custom electrical design and installation.",
             "intro_heading": "Seamless Electrical Design and Installation, Start to Finish",
             "intro_body": (
                 "At ACS Maine, we specialize in full-service design-build electrical projects that take your vision "

@@ -59,79 +59,14 @@
     </div>
 
     <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- Each service card -->
-      <a class="card bg-base-100 shadow hover:shadow-lg transition" href="/services/design-build/">
+      {% for service in services %}
+      <a class="card bg-base-100 shadow hover:shadow-lg transition" href="{% url 'services_detail' service.slug %}">
         <div class="card-body">
-          <h3 class="card-title">Design‑Build Electrical Projects</h3>
-          <p>From concept to completion, we handle all aspects of custom electrical design and installation.</p>
+          <h3 class="card-title">{{ service.title }}</h3>
+          <p>{{ service.subtitle }}</p>
         </div>
       </a>
-      <a class="card bg-base-100 shadow hover:shadow-lg transition" href="/services/new-electrical-services/">
-        <div class="card-body">
-          <h3 class="card-title">New Electrical Services</h3>
-          <p>Install brand‑new systems that meet current code and performance standards.</p>
-        </div>
-      </a>
-      <a class="card bg-base-100 shadow hover:shadow-lg transition" href="/services/fuse-to-breaker-upgrades/">
-        <div class="card-body">
-          <h3 class="card-title">Fuse → Breaker Upgrades</h3>
-          <p>Upgrade old fuse boxes to modern circuit breaker panels for safety and reliability.</p>
-        </div>
-      </a>
-      <a class="card bg-base-100 shadow hover:shadow-lg transition" href="/services/knob-and-tube-replacement/">
-        <div class="card-body">
-          <h3 class="card-title">Knob & Tube Replacement</h3>
-          <p>Safely replace outdated wiring to handle today’s electrical load demands.</p>
-        </div>
-      </a>
-      <a class="card bg-base-100 shadow hover:shadow-lg transition" href="/services/wiring-new-builds-remodels/">
-        <div class="card-body">
-          <h3 class="card-title">Wiring — New Builds & Remodels</h3>
-          <p>Complete wiring services tailored to your new construction or renovation.</p>
-        </div>
-      </a>
-      <a class="card bg-base-100 shadow hover:shadow-lg transition" href="/services/generators-transfer-switches/">
-        <div class="card-body">
-          <h3 class="card-title">Generators & Transfer Switches</h3>
-          <p>Professional generator and transfer switch installation for dependable backup power.</p>
-        </div>
-      </a>
-      <a class="card bg-base-100 shadow hover:shadow-lg transition" href="/services/solar-systems/">
-        <div class="card-body">
-          <h3 class="card-title">Solar Electrical Systems</h3>
-          <p>On‑grid or off‑grid designs customized to your property and goals.</p>
-        </div>
-      </a>
-      <a class="card bg-base-100 shadow hover:shadow-lg transition" href="/services/appliance-installations/">
-        <div class="card-body">
-          <h3 class="card-title">Appliance Installations</h3>
-          <p>Safe, code‑compliant installs for major appliances and specialized equipment.</p>
-        </div>
-      </a>
-      <a class="card bg-base-100 shadow hover:shadow-lg transition" href="/services/lighting/">
-        <div class="card-body">
-          <h3 class="card-title">Interior & Exterior Lighting</h3>
-          <p>Brighten and secure your property with efficient, long‑lasting lighting solutions.</p>
-        </div>
-      </a>
-      <a class="card bg-base-100 shadow hover:shadow-lg transition" href="/services/electric-heat/">
-        <div class="card-body">
-          <h3 class="card-title">Electric Heat Installations</h3>
-          <p>Energy‑efficient electric heating systems for comfort and cost savings.</p>
-        </div>
-      </a>
-      <a class="card bg-base-100 shadow hover:shadow-lg transition" href="/services/pools-saunas/">
-        <div class="card-body">
-          <h3 class="card-title">Sauna, Pool & Jacuzzi Electrical</h3>
-          <p>Specialized wiring and safety installations for wet and high‑moisture environments.</p>
-        </div>
-      </a>
-      <a class="card bg-base-100 shadow hover:shadow-lg transition" href="/services/fixtures-lamps/">
-        <div class="card-body">
-          <h3 class="card-title">New Lamps & Fixtures</h3>
-          <p>Expert installation of functional and decorative fixtures to enhance your space.</p>
-        </div>
-      </a>
+        {% endfor %}
     </div>
 
     <div class="mt-10 flex flex-wrap gap-4">

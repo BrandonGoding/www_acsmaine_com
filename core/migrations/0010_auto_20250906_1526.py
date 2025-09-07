@@ -12,6 +12,7 @@ def add_fuse_to_breaker_service(apps, schema_editor):
         slug=slug,
         defaults={
             "title": "Fuse to Circuit Breaker Upgrades",
+            "subtitle": "Upgrade old fuse boxes to modern circuit breaker panels for safety and reliability.",
             "intro_heading": "Fuse Box to Circuit Breaker Upgrades in Maine",
             "intro_body": (
                 "At ACS Electrical Contractors, we specialize in fuse box to circuit breaker upgrades that improve the "

@@ -13,6 +13,7 @@ def add_wiring_new_builds_remodels(apps, schema_editor):
         slug=slug,
         defaults={
             "title": "Wiring for New Buildings & Remodels",
+            "subtitle": "Complete wiring services tailored to your new construction or renovation.",
             "intro_heading": "Electrical Wiring for New Construction and Remodels",
             "intro_body": (
                 "ACS Electrical Contractors provides complete electrical wiring for new buildings and remodels, "

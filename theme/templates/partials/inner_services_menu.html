@@ -2,12 +2,21 @@
 
     {% for service in services %}
       <div class="group relative rounded-lg p-6 text-sm/6 hover:bg-gray-50 dark:hover:bg-white/5">
+        <div class="flex size-11 items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white dark:bg-gray-700/50 dark:group-hover:bg-gray-700">
+          <!-- bolt -->
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
+               class="size-6 text-gray-600 group-hover:text-indigo-600 dark:text-gray-400 dark:group-hover:text-white">
+            <path fill-rule="evenodd"
+                  d="M12.723 2.116a.75.75 0 01.53.92l-1.237 5.154h5.234a.75.75 0 01.565 1.226l-9 11a.75.75 0 01-1.306-.671l1.238-5.154H3.75a.75.75 0 01-.565-1.226l9-11a.75.75 0 01.538-.249z"
+                  clip-rule="evenodd" />
+          </svg>
+        </div>
         <a href="{%  url "services_detail" service.slug %}" class="mt-6 block font-semibold text-gray-900 dark:text-white">
             {{ service.title }}
           <span class="absolute inset-0"></span>
         </a>
-        <p class="mt-1 text-gray-600 dark:text-gray-400">{{ service.subtitle }}</p>
+        <p class="mt-1 text-gray-600">{{ service.subtitle }}</p>
       </div>
         {% endfor %}
-      
+
     </div>

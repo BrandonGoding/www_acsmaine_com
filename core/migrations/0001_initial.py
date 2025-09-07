@@ -17,6 +17,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('title', models.CharField(max_length=200)),
+                ('subtitle', models.CharField(max_length=200)),
                 ('slug', models.SlugField(unique=True)),
                 ('intro_heading', models.CharField(max_length=200)),
                 ('intro_body', models.TextField()),

@@ -12,6 +12,7 @@ def add_knob_and_tube_service(apps, schema_editor):
         slug=slug,
         defaults={
             "title": "Knob and Tube Wiring Replacement",
+            "subtitle": "Safely replace outdated wiring to handle today’s electrical load demands.",
             "intro_heading": "Knob and Tube Wiring Replacement Services in Maine",
             "intro_body": (
                 "At ACS Electrical Contractors, we provide expert knob and tube wiring replacement to help homeowners "

@@ -12,6 +12,7 @@ def add_lighting_service(apps, schema_editor):
         slug=slug,
         defaults={
             "title": "Interior & Exterior Building Lighting",
+            "subtitle": "Brighten and secure your property with efficient, long‑lasting lighting solutions.",
             "intro_heading": "Interior and Exterior Lighting Installation in Maine",
             "intro_body": (
                 "At ACS Electrical Contractors, we offer professional interior and exterior building lighting "

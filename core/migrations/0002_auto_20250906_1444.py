@@ -10,6 +10,7 @@ def add_pools_saunas_service(apps, schema_editor):
         slug="sauna-pool-jacuzzi",
         defaults={
             "title": "Sauna, Pool & Jacuzzi Electrical Work",
+            "subtitle": "Specialized wiring and safety installations for wet and high‑moisture environments.",
             "intro_heading": "Sauna, Pool, and Jacuzzi Electrical Installation in Maine",
             "intro_body": "ACS Maine provides specialized electrical services for saunas, pools, hot tubs, and Jacuzzis...",
             "why_heading": "Why Trust ACS for Your Spa & Pool Electrical Work?",

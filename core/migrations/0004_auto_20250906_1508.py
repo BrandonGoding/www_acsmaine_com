@@ -13,6 +13,7 @@ def add_solar_service(apps, schema_editor):
         slug=slug,
         defaults={
             "title": "Solar Electrical Systems",
+            "subtitle": "On‑grid or off‑grid designs customized to your property and goals.",
             "intro_heading": "Solar Electrical Systems — On-Grid and Off-Grid Solutions in Maine",
             "intro_body": (
                 "ACS Maine designs and installs safe, reliable solar electrical systems for homes, camps, and "
