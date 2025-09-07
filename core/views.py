@@ -65,3 +65,7 @@ def contact(request):
         form = ServiceRequestForm()
 
     return render(request, "core/contact.html", {"form": form})
+
+
+def payments(request):
+    return render(request, "core/payments.html")

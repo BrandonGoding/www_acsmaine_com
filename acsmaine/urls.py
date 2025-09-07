@@ -24,6 +24,7 @@ urlpatterns = [
     path('contact/', website_views.contact, name='contact'),
     path('services/', website_views.ServiceListView.as_view(), name='services_list'),
     path("services/<slug:slug>/", website_views.ServiceDetailView.as_view(), name="services_detail"),
+    path("payments/", website_views.payments, name="payments"),
     path('admin/', admin.site.urls),
 ]
 
