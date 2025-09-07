@@ -20,6 +20,7 @@ from core import views as website_views
 
 urlpatterns = [
     path('', website_views.HomeView.as_view(), name='home'),
+    path('about/', website_views.AboutView.as_view(), name='about'),
     path('services/', website_views.ServiceListView.as_view(), name='services_list'),
     path("services/<slug:slug>/", website_views.ServiceDetailView.as_view(), name="services_detail"),
     path('admin/', admin.site.urls),

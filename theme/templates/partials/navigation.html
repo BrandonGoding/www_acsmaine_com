@@ -5,7 +5,7 @@
 <header class="relative isolate z-10 bg-white">
   <nav aria-label="Global" class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
     <div class="flex lg:flex-1">
-      <a href="#" class="-m-1.5 p-1.5">
+      <a href="{% url 'home' %}" class="-m-1.5 p-1.5">
         <span class="sr-only">ACS Electrical Contractors</span>
         <img src="{% static 'img/acs_rgb_blue.gif' %}" alt="ACS Logo" class="h-8 w-auto" />
       </a>
@@ -19,7 +19,7 @@
       </button>
     </div>
     <el-popover-group class="hidden lg:flex lg:gap-x-12">
-        <a href="#" class="text-sm/6 font-semibold text-gray-900">About ACS</a>
+        <a href="{% url 'about' %}" class="text-sm/6 font-semibold text-gray-900">About ACS</a>
       <button popovertarget="desktop-menu-services" class="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900">
         Services
         <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="size-5 flex-none text-gray-400">
