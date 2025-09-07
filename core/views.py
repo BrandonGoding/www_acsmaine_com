@@ -1,5 +1,8 @@
 from django.views.generic import TemplateView, DetailView, ListView
 from .models import Service
+from django.contrib import messages
+from django.shortcuts import render, redirect
+from .forms import ServiceRequestForm
 
 
 class HomeView(TemplateView):
@@ -47,3 +50,18 @@ class ServiceDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         context['services'] = Service.objects.filter().exclude(id=self.object.id)
         return context
+
+
+def contact(request):
+    if request.method == "POST":
+        form = ServiceRequestForm(request.POST)
+        if form.is_valid():
+            # TODO: send email / save to DB / create ticket
+            messages.success(request, "Thanks for submitting! We’ll be in touch shortly.")
+            return redirect("contact")  # PRG pattern
+        else:
+            messages.error(request, "Please fix the errors below and resubmit.")
+    else:
+        form = ServiceRequestForm()
+
+    return render(request, "core/contact.html", {"form": form})
