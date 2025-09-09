@@ -1,4 +1,5 @@
 from django.views.generic import TemplateView, DetailView, ListView
+from django.views.generic.edit import FormView
 from .models import Service
 from django.contrib import messages
 from django.shortcuts import render, redirect
@@ -51,6 +52,10 @@ class ServiceDetailView(DetailView):
         context['services'] = Service.objects.filter().exclude(id=self.object.id)
         return context
 
+class ContactForm(FormView):
+    pasi
+    class ContactForm(FormView):
+        pass
 
 def contact(request):
     if request.method == "POST":
