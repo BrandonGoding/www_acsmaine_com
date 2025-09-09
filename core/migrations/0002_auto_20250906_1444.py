@@ -21,20 +21,42 @@ def add_pools_saunas_service(apps, schema_editor):
 
     if created:
         bullets = [
-            {"title": "Code-Compliant & Inspected", "text": "We ensure your setup meets NEC and Maine electrical safety standards."},
-            {"title": "Peace of Mind Around Water", "text": "GFCI protection and proper grounding keep your family and guests safe."},
-            {"title": "Complete Integration", "text": "We handle pumps, heaters, lights, timers, and control systems — wired right the first time."},
+            {
+                "title": "Code-Compliant & Inspected",
+                "text": "We ensure your setup meets NEC and Maine electrical safety standards.",
+            },
+            {
+                "title": "Peace of Mind Around Water",
+                "text": "GFCI protection and proper grounding keep your family and guests safe.",
+            },
+            {
+                "title": "Complete Integration",
+                "text": "We handle pumps, heaters, lights, timers, and control systems — wired right the first time.",
+            },
         ]
         for b in bullets:
-            BulletPoint.objects.create(service=service, title=b["title"], text=b["text"])
+            BulletPoint.objects.create(
+                service=service, title=b["title"], text=b["text"]
+            )
 
         faqs = [
-            {"question": "Do I need a dedicated circuit for my hot tub or pool?", "answer": "Yes. Dedicated circuits + GFCI + bonding are typically required."},
-            {"question": "Can you wire both indoor and outdoor spa features?", "answer": "Absolutely. We protect wiring from moisture, corrosion, and weather."},
-            {"question": "How soon can you install?", "answer": "We coordinate with your delivery/installer for a fast, clean install."},
+            {
+                "question": "Do I need a dedicated circuit for my hot tub or pool?",
+                "answer": "Yes. Dedicated circuits + GFCI + bonding are typically required.",
+            },
+            {
+                "question": "Can you wire both indoor and outdoor spa features?",
+                "answer": "Absolutely. We protect wiring from moisture, corrosion, and weather.",
+            },
+            {
+                "question": "How soon can you install?",
+                "answer": "We coordinate with your delivery/installer for a fast, clean install.",
+            },
         ]
         for f in faqs:
-            FAQ.objects.create(service=service, question=f["question"], answer=f["answer"])
+            FAQ.objects.create(
+                service=service, question=f["question"], answer=f["answer"]
+            )
 
 
 def remove_pools_saunas_service(apps, schema_editor):

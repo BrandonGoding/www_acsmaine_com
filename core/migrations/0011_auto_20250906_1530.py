@@ -50,7 +50,15 @@ def add_generators_transfer_switch_service(apps, schema_editor):
             "install the proper wiring and transfer switch, and ensure your system is ready when the power goes "
             "out. We provide clean, code-compliant installations that protect your property and your peace of mind."
         )
-        service.save(update_fields=["title", "intro_heading", "intro_body", "why_heading", "why_body"])
+        service.save(
+            update_fields=[
+                "title",
+                "intro_heading",
+                "intro_body",
+                "why_heading",
+                "why_body",
+            ]
+        )
 
     # Bullet points (dedupe by title)
     bullets = [
@@ -67,10 +75,14 @@ def add_generators_transfer_switch_service(apps, schema_editor):
             "text": "We size systems to match your home or business — no more, no less.",
         },
     ]
-    existing_titles = set(BulletPoint.objects.filter(service=service).values_list("title", flat=True))
+    existing_titles = set(
+        BulletPoint.objects.filter(service=service).values_list("title", flat=True)
+    )
     for b in bullets:
         if b["title"] not in existing_titles:
-            BulletPoint.objects.create(service=service, title=b["title"], text=b["text"])
+            BulletPoint.objects.create(
+                service=service, title=b["title"], text=b["text"]
+            )
 
     # FAQs (dedupe by question)
     faqs = [
@@ -95,10 +107,14 @@ def add_generators_transfer_switch_service(apps, schema_editor):
             ),
         },
     ]
-    existing_questions = set(FAQ.objects.filter(service=service).values_list("question", flat=True))
+    existing_questions = set(
+        FAQ.objects.filter(service=service).values_list("question", flat=True)
+    )
     for f in faqs:
         if f["question"] not in existing_questions:
-            FAQ.objects.create(service=service, question=f["question"], answer=f["answer"])
+            FAQ.objects.create(
+                service=service, question=f["question"], answer=f["answer"]
+            )
 
 
 def remove_generators_transfer_switch_service(apps, schema_editor):

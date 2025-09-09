@@ -49,7 +49,15 @@ def add_appliance_installations_service(apps, schema_editor):
             "electrical upgrades, and install your appliance safely and efficiently. We handle everything from "
             "ovens and dryers to dishwashers and electric ranges — with no shortcuts."
         )
-        service.save(update_fields=["title", "intro_heading", "intro_body", "why_heading", "why_body"])
+        service.save(
+            update_fields=[
+                "title",
+                "intro_heading",
+                "intro_body",
+                "why_heading",
+                "why_body",
+            ]
+        )
 
     # Bullet points (dedupe by title)
     bullets = [
@@ -71,7 +79,9 @@ def add_appliance_installations_service(apps, schema_editor):
     )
     for b in bullets:
         if b["title"] not in existing_bullets:
-            BulletPoint.objects.create(service=service, title=b["title"], text=b["text"])
+            BulletPoint.objects.create(
+                service=service, title=b["title"], text=b["text"]
+            )
 
     # FAQs (dedupe by question)
     faqs = [
@@ -102,7 +112,9 @@ def add_appliance_installations_service(apps, schema_editor):
     )
     for f in faqs:
         if f["question"] not in existing_faqs:
-            FAQ.objects.create(service=service, question=f["question"], answer=f["answer"])
+            FAQ.objects.create(
+                service=service, question=f["question"], answer=f["answer"]
+            )
 
 
 def remove_appliance_installations_service(apps, schema_editor):

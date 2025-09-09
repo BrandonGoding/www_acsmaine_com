@@ -36,7 +36,9 @@ def add_solar_service(apps, schema_editor):
     # If it already exists, refresh core fields (idempotent behavior)
     if not created:
         service.title = "Solar Electrical Systems"
-        service.intro_heading = "Solar Electrical Systems — On-Grid and Off-Grid Solutions in Maine"
+        service.intro_heading = (
+            "Solar Electrical Systems — On-Grid and Off-Grid Solutions in Maine"
+        )
         service.intro_body = (
             "ACS Maine designs and installs safe, reliable solar electrical systems for homes, camps, and "
             "businesses throughout Maine. Whether you're looking to reduce your electric bill with a grid-tied "
@@ -51,9 +53,15 @@ def add_solar_service(apps, schema_editor):
             "everything from panel connections and inverters to battery storage and system integration. Our focus "
             "is on safety, system longevity, and making sure you get the most out of your solar investment."
         )
-        service.save(update_fields=[
-            "title", "intro_heading", "intro_body", "why_heading", "why_body"
-        ])
+        service.save(
+            update_fields=[
+                "title",
+                "intro_heading",
+                "intro_body",
+                "why_heading",
+                "why_body",
+            ]
+        )
 
     # Bullet points (dedupe by title)
     bullets = [
@@ -75,7 +83,9 @@ def add_solar_service(apps, schema_editor):
     )
     for b in bullets:
         if b["title"] not in existing_bullets:
-            BulletPoint.objects.create(service=service, title=b["title"], text=b["text"])
+            BulletPoint.objects.create(
+                service=service, title=b["title"], text=b["text"]
+            )
 
     # FAQs (dedupe by question)
     faqs = [
@@ -108,7 +118,9 @@ def add_solar_service(apps, schema_editor):
     )
     for f in faqs:
         if f["question"] not in existing_faqs:
-            FAQ.objects.create(service=service, question=f["question"], answer=f["answer"])
+            FAQ.objects.create(
+                service=service, question=f["question"], answer=f["answer"]
+            )
 
 
 def remove_solar_service(apps, schema_editor):

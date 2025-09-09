@@ -52,7 +52,15 @@ def add_knob_and_tube_service(apps, schema_editor):
             "ensuring your home is safer, your insurance coverage is secure, and your electrical system is ready "
             "for modern life."
         )
-        service.save(update_fields=["title", "intro_heading", "intro_body", "why_heading", "why_body"])
+        service.save(
+            update_fields=[
+                "title",
+                "intro_heading",
+                "intro_body",
+                "why_heading",
+                "why_body",
+            ]
+        )
 
     # Bullet points (dedupe by title)
     bullets = [
@@ -74,7 +82,9 @@ def add_knob_and_tube_service(apps, schema_editor):
     )
     for b in bullets:
         if b["title"] not in existing_bullets:
-            BulletPoint.objects.create(service=service, title=b["title"], text=b["text"])
+            BulletPoint.objects.create(
+                service=service, title=b["title"], text=b["text"]
+            )
 
     # FAQs (dedupe by question)
     faqs = [
@@ -105,7 +115,9 @@ def add_knob_and_tube_service(apps, schema_editor):
     )
     for f in faqs:
         if f["question"] not in existing_faqs:
-            FAQ.objects.create(service=service, question=f["question"], answer=f["answer"])
+            FAQ.objects.create(
+                service=service, question=f["question"], answer=f["answer"]
+            )
 
 
 def remove_knob_and_tube_service(apps, schema_editor):

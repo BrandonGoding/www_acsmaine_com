@@ -50,18 +50,39 @@ def add_fuse_to_breaker_service(apps, schema_editor):
             "electrical fires, reduce maintenance headaches, and increase the overall value of your home or "
             "commercial property."
         )
-        service.save(update_fields=["title", "intro_heading", "intro_body", "why_heading", "why_body"])
+        service.save(
+            update_fields=[
+                "title",
+                "intro_heading",
+                "intro_body",
+                "why_heading",
+                "why_body",
+            ]
+        )
 
     # Bullet points (dedupe by title)
     bullets = [
-        {"title": "Improved Safety", "text": "Modern circuit breakers provide better overload and short-circuit protection, reducing fire risks."},
-        {"title": "Increased Capacity", "text": "Upgrade to handle today’s electrical demands, from appliances to electronics."},
-        {"title": "Convenience & Savings", "text": "Easily reset breakers instead of replacing blown fuses, saving time and hassle."},
+        {
+            "title": "Improved Safety",
+            "text": "Modern circuit breakers provide better overload and short-circuit protection, reducing fire risks.",
+        },
+        {
+            "title": "Increased Capacity",
+            "text": "Upgrade to handle today’s electrical demands, from appliances to electronics.",
+        },
+        {
+            "title": "Convenience & Savings",
+            "text": "Easily reset breakers instead of replacing blown fuses, saving time and hassle.",
+        },
     ]
-    existing_titles = set(BulletPoint.objects.filter(service=service).values_list("title", flat=True))
+    existing_titles = set(
+        BulletPoint.objects.filter(service=service).values_list("title", flat=True)
+    )
     for b in bullets:
         if b["title"] not in existing_titles:
-            BulletPoint.objects.create(service=service, title=b["title"], text=b["text"])
+            BulletPoint.objects.create(
+                service=service, title=b["title"], text=b["text"]
+            )
 
     # FAQs (dedupe by question)
     faqs = [
@@ -87,10 +108,14 @@ def add_fuse_to_breaker_service(apps, schema_editor):
             ),
         },
     ]
-    existing_questions = set(FAQ.objects.filter(service=service).values_list("question", flat=True))
+    existing_questions = set(
+        FAQ.objects.filter(service=service).values_list("question", flat=True)
+    )
     for f in faqs:
         if f["question"] not in existing_questions:
-            FAQ.objects.create(service=service, question=f["question"], answer=f["answer"])
+            FAQ.objects.create(
+                service=service, question=f["question"], answer=f["answer"]
+            )
 
 
 def remove_fuse_to_breaker_service(apps, schema_editor):
@@ -108,5 +133,7 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RunPython(add_fuse_to_breaker_service, remove_fuse_to_breaker_service),
+        migrations.RunPython(
+            add_fuse_to_breaker_service, remove_fuse_to_breaker_service
+        ),
     ]
