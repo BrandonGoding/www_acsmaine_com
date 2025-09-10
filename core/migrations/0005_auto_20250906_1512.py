@@ -26,7 +26,7 @@ def add_lighting_service(apps, schema_editor):
                 "Lighting does more than illuminate — it enhances safety, improves productivity, and brings out the "
                 "best in your property. Our team designs and installs custom lighting systems tailored to your needs, "
                 "whether it’s functional lighting for workspaces, ambient lighting for living areas, or security "
-                "lighting for driveways and entrances. With ACS Maine, your lighting is thoughtfully planned, "
+                "lighting for driveways and entrances. With ACS Electrical Contractors, your lighting is thoughtfully planned, "
                 "professionally installed, and future-ready."
             ),
             "image": 'img/interior-exterior-building-lighting.png',
@@ -48,7 +48,7 @@ def add_lighting_service(apps, schema_editor):
             "Lighting does more than illuminate — it enhances safety, improves productivity, and brings out the "
             "best in your property. Our team designs and installs custom lighting systems tailored to your needs, "
             "whether it’s functional lighting for workspaces, ambient lighting for living areas, or security "
-            "lighting for driveways and entrances. With ACS Maine, your lighting is thoughtfully planned, "
+            "lighting for driveways and entrances. With ACS Electrical Contractors, your lighting is thoughtfully planned, "
             "professionally installed, and future-ready."
         )
         service.save(update_fields=["title", "intro_heading", "intro_body", "why_heading", "why_body"])

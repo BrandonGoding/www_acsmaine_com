@@ -24,7 +24,7 @@ def add_fuse_to_breaker_service(apps, schema_editor):
             "why_heading": "Why Upgrade with ACS?",
             "why_body": (
                 "Upgrading from fuses to circuit breakers isn’t just about convenience — it’s about safety and future "
-                "readiness. ACS Maine ensures your upgrade is performed to the highest standards, helping prevent "
+                "readiness. ACS Electrical Contractors ensures your upgrade is performed to the highest standards, helping prevent "
                 "electrical fires, reduce maintenance headaches, and increase the overall value of your home or "
                 "commercial property."
             ),
@@ -46,7 +46,7 @@ def add_fuse_to_breaker_service(apps, schema_editor):
         service.why_heading = "Why Upgrade with ACS?"
         service.why_body = (
             "Upgrading from fuses to circuit breakers isn’t just about convenience — it’s about safety and future "
-            "readiness. ACS Maine ensures your upgrade is performed to the highest standards, helping prevent "
+            "readiness. ACS Electrical Contractors ensures your upgrade is performed to the highest standards, helping prevent "
             "electrical fires, reduce maintenance headaches, and increase the overall value of your home or "
             "commercial property."
         )

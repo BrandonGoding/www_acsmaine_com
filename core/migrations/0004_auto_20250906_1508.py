@@ -16,15 +16,15 @@ def add_solar_service(apps, schema_editor):
             "subtitle": "On‑grid or off‑grid designs customized to your property and goals.",
             "intro_heading": "Solar Electrical Systems — On-Grid and Off-Grid Solutions in Maine",
             "intro_body": (
-                "ACS Maine designs and installs safe, reliable solar electrical systems for homes, camps, and "
+                "ACS Electrical Contractors designs and installs safe, reliable solar electrical systems for homes, camps, and "
                 "businesses throughout Maine. Whether you're looking to reduce your electric bill with a grid-tied "
                 "system or power a remote cabin completely off-grid, we provide expert solar wiring and integration "
                 "services. Our team ensures your solar setup is not only efficient, but also fully code-compliant and "
                 "built to withstand Maine’s climate."
             ),
-            "why_heading": "Why Choose ACS Maine for Solar Electrical Work?",
+            "why_heading": "Why Choose ACS Electrical Contractors for Solar Electrical Work?",
             "why_body": (
-                "Solar power is a smart investment — but only when it's installed right. ACS Maine brings deep "
+                "Solar power is a smart investment — but only when it's installed right. ACS Electrical Contractors brings deep "
                 "experience in wiring solar systems for both utility-connected and independent applications. We handle "
                 "everything from panel connections and inverters to battery storage and system integration. Our focus "
                 "is on safety, system longevity, and making sure you get the most out of your solar investment."
@@ -38,15 +38,15 @@ def add_solar_service(apps, schema_editor):
         service.title = "Solar Electrical Systems"
         service.intro_heading = "Solar Electrical Systems — On-Grid and Off-Grid Solutions in Maine"
         service.intro_body = (
-            "ACS Maine designs and installs safe, reliable solar electrical systems for homes, camps, and "
+            "ACS Electrical Contractors designs and installs safe, reliable solar electrical systems for homes, camps, and "
             "businesses throughout Maine. Whether you're looking to reduce your electric bill with a grid-tied "
             "system or power a remote cabin completely off-grid, we provide expert solar wiring and integration "
             "services. Our team ensures your solar setup is not only efficient, but also fully code-compliant and "
             "built to withstand Maine’s climate."
         )
-        service.why_heading = "Why Choose ACS Maine for Solar Electrical Work?"
+        service.why_heading = "Why Choose ACS Electrical Contractors for Solar Electrical Work?"
         service.why_body = (
-            "Solar power is a smart investment — but only when it's installed right. ACS Maine brings deep "
+            "Solar power is a smart investment — but only when it's installed right. ACS Electrical Contractors brings deep "
             "experience in wiring solar systems for both utility-connected and independent applications. We handle "
             "everything from panel connections and inverters to battery storage and system integration. Our focus "
             "is on safety, system longevity, and making sure you get the most out of your solar investment."

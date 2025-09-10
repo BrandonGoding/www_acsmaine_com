@@ -64,8 +64,9 @@ def contact(request):
     else:
         form = ServiceRequestForm()
 
-    return render(request, "core/contact.html", {"form": form})
+    return render(request, "core/contact.html", {"form": form, "services": Service.objects.all()})
 
 
 def payments(request):
-    return render(request, "core/payments.html")
+    context = {'services': Service.objects.all()}
+    return render(request, "core/payments.html", context=context)

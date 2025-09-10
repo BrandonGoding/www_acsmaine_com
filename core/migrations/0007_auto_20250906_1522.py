@@ -16,12 +16,12 @@ def add_appliance_installations_service(apps, schema_editor):
             "intro_heading": "Safe and Professional Appliance Installations in Maine",
             "intro_body": (
                 "When it comes to installing major appliances, proper electrical connections are critical to safety "
-                "and performance. At ACS Maine, we provide professional appliance installation services for homes, "
+                "and performance. At ACS Electrical Contractors, we provide professional appliance installation services for homes, "
                 "rental units, and businesses across Maine. Whether you're replacing a kitchen appliance, upgrading "
                 "laundry equipment, or adding a new hardwired unit, our licensed electricians ensure everything is "
                 "wired correctly, securely, and to code."
             ),
-            "why_heading": "Why Trust ACS Maine for Appliance Installations?",
+            "why_heading": "Why Trust ACS Electrical Contractors for Appliance Installations?",
             "why_body": (
                 "Many appliances require more than just plugging them in — they need dedicated circuits, proper "
                 "grounding, and sometimes hardwiring. Our team will inspect your existing setup, make any necessary "
@@ -37,12 +37,12 @@ def add_appliance_installations_service(apps, schema_editor):
         service.intro_heading = "Safe and Professional Appliance Installations in Maine"
         service.intro_body = (
             "When it comes to installing major appliances, proper electrical connections are critical to safety "
-            "and performance. At ACS Maine, we provide professional appliance installation services for homes, "
+            "and performance. At ACS Electrical Contractors, we provide professional appliance installation services for homes, "
             "rental units, and businesses across Maine. Whether you're replacing a kitchen appliance, upgrading "
             "laundry equipment, or adding a new hardwired unit, our licensed electricians ensure everything is "
             "wired correctly, securely, and to code."
         )
-        service.why_heading = "Why Trust ACS Maine for Appliance Installations?"
+        service.why_heading = "Why Trust ACS Electrical Contractors for Appliance Installations?"
         service.why_body = (
             "Many appliances require more than just plugging them in — they need dedicated circuits, proper "
             "grounding, and sometimes hardwiring. Our team will inspect your existing setup, make any necessary "

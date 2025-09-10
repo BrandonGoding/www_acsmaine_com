@@ -15,16 +15,16 @@ def add_design_build_service(apps, schema_editor):
             "subtitle": "From concept to completion, we handle all aspects of custom electrical design and installation.",
             "intro_heading": "Seamless Electrical Design and Installation, Start to Finish",
             "intro_body": (
-                "At ACS Maine, we specialize in full-service design-build electrical projects that take your vision "
+                "At ACS Electrical Contractors, we specialize in full-service design-build electrical projects that take your vision "
                 "from concept to completion. Serving residential, commercial, and industrial clients across Maine, we "
                 "combine expert electrical design, precise installation, and seamless project management to deliver "
                 "safe, efficient, and code-compliant results. Whether you’re planning a new construction, renovation, "
                 "or specialized build, our team ensures every detail is thoughtfully engineered and expertly executed."
             ),
-            "why_heading": "Why Choose ACS Maine for Design-Build Electrical Projects?",
+            "why_heading": "Why Choose ACS Electrical Contractors for Design-Build Electrical Projects?",
             "why_body": (
                 "Choosing a design-build approach means you get streamlined communication, faster project timelines, "
-                "and a single team accountable for both design and execution. At ACS Maine, we bring decades of "
+                "and a single team accountable for both design and execution. At ACS Electrical Contractors, we bring decades of "
                 "experience, technical expertise, and a commitment to safety and quality on every project. Our "
                 "integrated process helps reduce costs, avoid delays, and ensure your electrical system is perfectly "
                 "matched to your needs — today and into the future."
@@ -38,16 +38,16 @@ def add_design_build_service(apps, schema_editor):
         service.title = "Design-Build Electrical Projects"
         service.intro_heading = "Seamless Electrical Design and Installation, Start to Finish"
         service.intro_body = (
-            "At ACS Maine, we specialize in full-service design-build electrical projects that take your vision "
+            "At ACS Electrical Contractors, we specialize in full-service design-build electrical projects that take your vision "
             "from concept to completion. Serving residential, commercial, and industrial clients across Maine, we "
             "combine expert electrical design, precise installation, and seamless project management to deliver "
             "safe, efficient, and code-compliant results. Whether you’re planning a new construction, renovation, "
             "or specialized build, our team ensures every detail is thoughtfully engineered and expertly executed."
         )
-        service.why_heading = "Why Choose ACS Maine for Design-Build Electrical Projects?"
+        service.why_heading = "Why Choose ACS Electrical Contractors for Design-Build Electrical Projects?"
         service.why_body = (
             "Choosing a design-build approach means you get streamlined communication, faster project timelines, "
-            "and a single team accountable for both design and execution. At ACS Maine, we bring decades of "
+            "and a single team accountable for both design and execution. At ACS Electrical Contractors, we bring decades of "
             "experience, technical expertise, and a commitment to safety and quality on every project. Our "
             "integrated process helps reduce costs, avoid delays, and ensure your electrical system is perfectly "
             "matched to your needs — today and into the future."
@@ -80,7 +80,7 @@ def add_design_build_service(apps, schema_editor):
             "question": "How is a design-build electrical project different from a traditional project?",
             "answer": (
                 "In a traditional setup, you hire a designer or engineer separately from the contractor, which can lead "
-                "to miscommunications or design changes during construction. With design-build, ACS Maine handles both "
+                "to miscommunications or design changes during construction. With design-build, ACS Electrical Contractors handles both "
                 "the design and the installation, ensuring smoother coordination, fewer delays, and a more efficient process."
             ),
         },

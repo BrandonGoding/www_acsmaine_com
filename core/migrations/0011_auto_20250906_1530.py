@@ -84,7 +84,7 @@ def add_generators_transfer_switch_service(apps, schema_editor):
         {
             "question": "Do I need a permit to install a generator or switch?",
             "answer": (
-                "Yes, but don’t worry — ACS Maine handles all required permits and inspections to ensure your system meets code."
+                "Yes, but don’t worry — ACS Electrical Contractors handles all required permits and inspections to ensure your system meets code."
             ),
         },
         {
