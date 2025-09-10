@@ -28,7 +28,7 @@ def add_electric_heat_service(apps, schema_editor):
                 "install it properly, and wire it for safety and performance. You get a heating solution that’s "
                 "low-maintenance, affordable, and built to last."
             ),
-            "image": 'img/electrical-heat-installations.png',
+            "image": "img/electrical-heat-installations.png",
         },
     )
 
@@ -50,18 +50,39 @@ def add_electric_heat_service(apps, schema_editor):
             "install it properly, and wire it for safety and performance. You get a heating solution that’s "
             "low-maintenance, affordable, and built to last."
         )
-        service.save(update_fields=["title", "intro_heading", "intro_body", "why_heading", "why_body"])
+        service.save(
+            update_fields=[
+                "title",
+                "intro_heading",
+                "intro_body",
+                "why_heading",
+                "why_body",
+            ]
+        )
 
     # Bullet points (dedupe by title)
     bullets = [
-        {"title": "Energy-Efficient Comfort", "text": "Electric heat converts nearly all energy to warmth with minimal waste."},
-        {"title": "Flexible Installation", "text": "Ideal for remodels, additions, and areas where traditional heating isn't practical."},
-        {"title": "Safe and Low-Maintenance", "text": "No combustion, no venting, and minimal upkeep required."},
+        {
+            "title": "Energy-Efficient Comfort",
+            "text": "Electric heat converts nearly all energy to warmth with minimal waste.",
+        },
+        {
+            "title": "Flexible Installation",
+            "text": "Ideal for remodels, additions, and areas where traditional heating isn't practical.",
+        },
+        {
+            "title": "Safe and Low-Maintenance",
+            "text": "No combustion, no venting, and minimal upkeep required.",
+        },
     ]
-    existing_bullets = set(BulletPoint.objects.filter(service=service).values_list("title", flat=True))
+    existing_bullets = set(
+        BulletPoint.objects.filter(service=service).values_list("title", flat=True)
+    )
     for b in bullets:
         if b["title"] not in existing_bullets:
-            BulletPoint.objects.create(service=service, title=b["title"], text=b["text"])
+            BulletPoint.objects.create(
+                service=service, title=b["title"], text=b["text"]
+            )
 
     # FAQs (dedupe by question)
     faqs = [
@@ -87,10 +108,14 @@ def add_electric_heat_service(apps, schema_editor):
             ),
         },
     ]
-    existing_faqs = set(FAQ.objects.filter(service=service).values_list("question", flat=True))
+    existing_faqs = set(
+        FAQ.objects.filter(service=service).values_list("question", flat=True)
+    )
     for f in faqs:
         if f["question"] not in existing_faqs:
-            FAQ.objects.create(service=service, question=f["question"], answer=f["answer"])
+            FAQ.objects.create(
+                service=service, question=f["question"], answer=f["answer"]
+            )
 
 
 def remove_electric_heat_service(apps, schema_editor):

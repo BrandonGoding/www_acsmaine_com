@@ -8,40 +8,80 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Service',
+            name="Service",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=200)),
-                ('subtitle', models.CharField(max_length=200)),
-                ('slug', models.SlugField(unique=True)),
-                ('intro_heading', models.CharField(max_length=200)),
-                ('intro_body', models.TextField()),
-                ('why_heading', models.CharField(max_length=200)),
-                ('why_body', models.TextField()),
-                ('image', models.ImageField(blank=True, null=True, upload_to='services/')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=200)),
+                ("subtitle", models.CharField(max_length=200)),
+                ("slug", models.SlugField(unique=True)),
+                ("intro_heading", models.CharField(max_length=200)),
+                ("intro_body", models.TextField()),
+                ("why_heading", models.CharField(max_length=200)),
+                ("why_body", models.TextField()),
+                (
+                    "image",
+                    models.ImageField(blank=True, null=True, upload_to="services/"),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='FAQ',
+            name="FAQ",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('question', models.CharField(max_length=300)),
-                ('answer', models.TextField()),
-                ('service', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='faqs', to='core.service')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("question", models.CharField(max_length=300)),
+                ("answer", models.TextField()),
+                (
+                    "service",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="faqs",
+                        to="core.service",
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='BulletPoint',
+            name="BulletPoint",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=200)),
-                ('text', models.TextField()),
-                ('service', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='bullet_points', to='core.service')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=200)),
+                ("text", models.TextField()),
+                (
+                    "service",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="bullet_points",
+                        to="core.service",
+                    ),
+                ),
             ],
         ),
     ]

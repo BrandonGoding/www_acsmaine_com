@@ -29,7 +29,7 @@ def add_lighting_service(apps, schema_editor):
                 "lighting for driveways and entrances. With ACS Electrical Contractors, your lighting is thoughtfully planned, "
                 "professionally installed, and future-ready."
             ),
-            "image": 'img/interior-exterior-building-lighting.png',
+            "image": "img/interior-exterior-building-lighting.png",
         },
     )
 
@@ -51,7 +51,15 @@ def add_lighting_service(apps, schema_editor):
             "lighting for driveways and entrances. With ACS Electrical Contractors, your lighting is thoughtfully planned, "
             "professionally installed, and future-ready."
         )
-        service.save(update_fields=["title", "intro_heading", "intro_body", "why_heading", "why_body"])
+        service.save(
+            update_fields=[
+                "title",
+                "intro_heading",
+                "intro_body",
+                "why_heading",
+                "why_body",
+            ]
+        )
 
     # Bullet points (dedupe by title)
     bullets = [
@@ -73,7 +81,9 @@ def add_lighting_service(apps, schema_editor):
     )
     for b in bullets:
         if b["title"] not in existing_bullets:
-            BulletPoint.objects.create(service=service, title=b["title"], text=b["text"])
+            BulletPoint.objects.create(
+                service=service, title=b["title"], text=b["text"]
+            )
 
     # FAQs (dedupe by question)
     faqs = [
@@ -104,7 +114,9 @@ def add_lighting_service(apps, schema_editor):
     )
     for f in faqs:
         if f["question"] not in existing_questions:
-            FAQ.objects.create(service=service, question=f["question"], answer=f["answer"])
+            FAQ.objects.create(
+                service=service, question=f["question"], answer=f["answer"]
+            )
 
 
 def remove_lighting_service(apps, schema_editor):

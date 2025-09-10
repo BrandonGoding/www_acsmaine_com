@@ -52,7 +52,15 @@ def add_wiring_new_builds_remodels(apps, schema_editor):
             "and modern techniques. We collaborate with contractors, builders, and homeowners to ensure every part of "
             "your electrical system supports your goals and passes inspection the first time."
         )
-        service.save(update_fields=["title", "intro_heading", "intro_body", "why_heading", "why_body"])
+        service.save(
+            update_fields=[
+                "title",
+                "intro_heading",
+                "intro_body",
+                "why_heading",
+                "why_body",
+            ]
+        )
 
     # Seed bullet points (ensure no duplicates by title)
     bullets = [
@@ -74,7 +82,9 @@ def add_wiring_new_builds_remodels(apps, schema_editor):
     )
     for b in bullets:
         if b["title"] not in existing_titles:
-            BulletPoint.objects.create(service=service, title=b["title"], text=b["text"])
+            BulletPoint.objects.create(
+                service=service, title=b["title"], text=b["text"]
+            )
 
     # Seed FAQs (ensure no duplicates by question)
     faqs = [
@@ -105,7 +115,9 @@ def add_wiring_new_builds_remodels(apps, schema_editor):
     )
     for f in faqs:
         if f["question"] not in existing_questions:
-            FAQ.objects.create(service=service, question=f["question"], answer=f["answer"])
+            FAQ.objects.create(
+                service=service, question=f["question"], answer=f["answer"]
+            )
 
 
 def remove_wiring_new_builds_remodels(apps, schema_editor):
@@ -123,5 +135,7 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RunPython(add_wiring_new_builds_remodels, remove_wiring_new_builds_remodels),
+        migrations.RunPython(
+            add_wiring_new_builds_remodels, remove_wiring_new_builds_remodels
+        ),
     ]
