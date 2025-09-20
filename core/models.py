@@ -7,8 +7,8 @@ from wagtail.models import Page, Orderable
 class HomePage(Page):
     max_count = 1
     subpage_types = [
-        'core.AboutACSPage',
-        'core.ServiceListingPage',
+        "core.AboutACSPage",
+        "core.ServiceListingPage",
     ]
 
 
@@ -45,7 +45,7 @@ class FeatureItem(Orderable):
 class ServiceListingPage(Page):
     max_count = 1
     subpage_types = [
-        'core.ServicePage',
+        "core.ServicePage",
     ]
 
 
@@ -66,17 +66,20 @@ class ServicePage(Page):
     )
 
     content_panels = Page.content_panels + [
-        FieldPanel('subtitle'),
-        FieldPanel('intro_heading'),
-        FieldPanel('intro_body'),
-        FieldPanel('why_heading'),
-        FieldPanel('why_body'),
+        FieldPanel("subtitle"),
+        FieldPanel("intro_heading"),
+        FieldPanel("intro_body"),
+        FieldPanel("why_heading"),
+        FieldPanel("why_body"),
         InlinePanel("bullet_points", label="Bullet Points"),
         InlinePanel("faqs", label="FAQs"),
     ]
 
+
 class BulletPointItem(Orderable):
-    page = ParentalKey(ServicePage, related_name="bullet_points", on_delete=models.CASCADE)
+    page = ParentalKey(
+        ServicePage, related_name="bullet_points", on_delete=models.CASCADE
+    )
     title = models.CharField(max_length=200)
     text = models.TextField()
 
@@ -84,6 +87,7 @@ class BulletPointItem(Orderable):
         FieldPanel("title"),
         FieldPanel("text"),
     ]
+
 
 class FrequentlyAskedQuestion(Orderable):
     page = ParentalKey(ServicePage, related_name="faqs", on_delete=models.CASCADE)

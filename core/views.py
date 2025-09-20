@@ -10,7 +10,7 @@ class HomeView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['services'] = Service.objects.all()
+        context["services"] = Service.objects.all()
         return context
 
 
@@ -19,19 +19,35 @@ class AboutView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['services'] = Service.objects.all()
+        context["services"] = Service.objects.all()
 
         features = [
-            {"title": "Experience", "text": "Our certified electricians bring years of expertise to every project."},
-            {"title": "Versatility",
-             "text": "From residential upgrades to commercial & industrial systems—we’ve got you covered."},
-            {"title": "Local Expertise", "text": "We understand local codes and tailor solutions for our community."},
-            {"title": "Safety First", "text": "We adhere to top industry standards to ensure your safety."},
-            {"title": "Customer-Centric",
-             "text": "Collaborative and transparent—we work within your needs and budget."},
-            {"title": "Reliability", "text": "Trusted for over two decades as your go-to electrical partner."},
+            {
+                "title": "Experience",
+                "text": "Our certified electricians bring years of expertise to every project.",
+            },
+            {
+                "title": "Versatility",
+                "text": "From residential upgrades to commercial & industrial systems—we’ve got you covered.",
+            },
+            {
+                "title": "Local Expertise",
+                "text": "We understand local codes and tailor solutions for our community.",
+            },
+            {
+                "title": "Safety First",
+                "text": "We adhere to top industry standards to ensure your safety.",
+            },
+            {
+                "title": "Customer-Centric",
+                "text": "Collaborative and transparent—we work within your needs and budget.",
+            },
+            {
+                "title": "Reliability",
+                "text": "Trusted for over two decades as your go-to electrical partner.",
+            },
         ]
-        context['features'] = features
+        context["features"] = features
 
         return context
 
@@ -39,7 +55,7 @@ class AboutView(TemplateView):
 class ServiceListView(ListView):
     template_name = "core/services/list.html"
     model = Service
-    context_object_name = 'services'
+    context_object_name = "services"
 
 
 class ServiceDetailView(DetailView):
@@ -48,7 +64,7 @@ class ServiceDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['services'] = Service.objects.filter().exclude(id=self.object.id)
+        context["services"] = Service.objects.filter().exclude(id=self.object.id)
         return context
 
 
@@ -57,16 +73,22 @@ def contact(request):
         form = ServiceRequestForm(request.POST)
         if form.is_valid():
             # TODO: send email / save to DB / create ticket
-            messages.success(request, "Thanks for submitting! We’ll be in touch shortly.")
+            messages.success(
+                request, "Thanks for submitting! We’ll be in touch shortly."
+            )
             return redirect("contact")  # PRG pattern
         else:
             messages.error(request, "Please fix the errors below and resubmit.")
     else:
         form = ServiceRequestForm()
 
-    return render(request, "core/contact_acs_page.html", {"form": form, "services": Service.objects.all()})
+    return render(
+        request,
+        "core/contact_acs_page.html",
+        {"form": form, "services": Service.objects.all()},
+    )
 
 
 def payments(request):
-    context = {'services': Service.objects.all()}
+    context = {"services": Service.objects.all()}
     return render(request, "core/payment_page.html", context=context)

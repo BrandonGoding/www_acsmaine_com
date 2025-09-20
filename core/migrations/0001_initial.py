@@ -10,152 +10,317 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('wagtailcore', '0095_groupsitepermission'),
-        ('wagtailimages', '0027_image_description'),
+        ("wagtailcore", "0095_groupsitepermission"),
+        ("wagtailimages", "0027_image_description"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='AboutACSPage',
+            name="AboutACSPage",
             fields=[
-                ('page_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='wagtailcore.page')),
+                (
+                    "page_ptr",
+                    models.OneToOneField(
+                        auto_created=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        parent_link=True,
+                        primary_key=True,
+                        serialize=False,
+                        to="wagtailcore.page",
+                    ),
+                ),
             ],
             options={
-                'abstract': False,
+                "abstract": False,
             },
-            bases=('wagtailcore.page',),
+            bases=("wagtailcore.page",),
         ),
         migrations.CreateModel(
-            name='ContactACSPage',
+            name="ContactACSPage",
             fields=[
-                ('page_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='wagtailcore.page')),
+                (
+                    "page_ptr",
+                    models.OneToOneField(
+                        auto_created=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        parent_link=True,
+                        primary_key=True,
+                        serialize=False,
+                        to="wagtailcore.page",
+                    ),
+                ),
             ],
             options={
-                'abstract': False,
+                "abstract": False,
             },
-            bases=('wagtailcore.page',),
+            bases=("wagtailcore.page",),
         ),
         migrations.CreateModel(
-            name='HomePage',
+            name="HomePage",
             fields=[
-                ('page_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='wagtailcore.page')),
+                (
+                    "page_ptr",
+                    models.OneToOneField(
+                        auto_created=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        parent_link=True,
+                        primary_key=True,
+                        serialize=False,
+                        to="wagtailcore.page",
+                    ),
+                ),
             ],
             options={
-                'abstract': False,
+                "abstract": False,
             },
-            bases=('wagtailcore.page',),
+            bases=("wagtailcore.page",),
         ),
         migrations.CreateModel(
-            name='PaymentPage',
+            name="PaymentPage",
             fields=[
-                ('page_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='wagtailcore.page')),
+                (
+                    "page_ptr",
+                    models.OneToOneField(
+                        auto_created=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        parent_link=True,
+                        primary_key=True,
+                        serialize=False,
+                        to="wagtailcore.page",
+                    ),
+                ),
             ],
             options={
-                'abstract': False,
+                "abstract": False,
             },
-            bases=('wagtailcore.page',),
+            bases=("wagtailcore.page",),
         ),
         migrations.CreateModel(
-            name='Service',
+            name="Service",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=200)),
-                ('subtitle', models.CharField(max_length=200)),
-                ('slug', models.SlugField(unique=True)),
-                ('intro_heading', models.CharField(max_length=200)),
-                ('intro_body', models.TextField()),
-                ('why_heading', models.CharField(max_length=200)),
-                ('why_body', models.TextField()),
-                ('image', models.ImageField(blank=True, null=True, upload_to='services/')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=200)),
+                ("subtitle", models.CharField(max_length=200)),
+                ("slug", models.SlugField(unique=True)),
+                ("intro_heading", models.CharField(max_length=200)),
+                ("intro_body", models.TextField()),
+                ("why_heading", models.CharField(max_length=200)),
+                ("why_body", models.TextField()),
+                (
+                    "image",
+                    models.ImageField(blank=True, null=True, upload_to="services/"),
+                ),
             ],
             options={
-                'ordering': ['title'],
-            },
-        ),
-        migrations.CreateModel(
-            name='ServiceListingPage',
-            fields=[
-                ('page_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='wagtailcore.page')),
-            ],
-            options={
-                'abstract': False,
-            },
-            bases=('wagtailcore.page',),
-        ),
-        migrations.CreateModel(
-            name='FeatureItem',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('sort_order', models.IntegerField(blank=True, editable=False, null=True)),
-                ('title', models.CharField(max_length=200)),
-                ('text', models.TextField()),
-                ('page', modelcluster.fields.ParentalKey(on_delete=django.db.models.deletion.CASCADE, related_name='features', to='core.aboutacspage')),
-            ],
-            options={
-                'ordering': ['sort_order'],
-                'abstract': False,
-            },
-        ),
-        migrations.CreateModel(
-            name='FAQ',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('question', models.CharField(max_length=300)),
-                ('answer', models.TextField()),
-                ('service', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='faqs', to='core.service')),
-            ],
-        ),
-        migrations.CreateModel(
-            name='BulletPoint',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=200)),
-                ('text', models.TextField()),
-                ('service', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='bullet_points', to='core.service')),
-            ],
-        ),
-        migrations.CreateModel(
-            name='ServicePage',
-            fields=[
-                ('page_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='wagtailcore.page')),
-                ('subtitle', models.CharField(max_length=255)),
-                ('intro_heading', models.CharField(max_length=255)),
-                ('intro_body', models.TextField()),
-                ('why_heading', models.CharField(max_length=255)),
-                ('why_body', models.TextField()),
-                ('image', models.ForeignKey(blank=True, help_text='Service image', null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='+', to='wagtailimages.image')),
-            ],
-            options={
-                'abstract': False,
-            },
-            bases=('wagtailcore.page',),
-        ),
-        migrations.CreateModel(
-            name='FrequentlyAskedQuestion',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('sort_order', models.IntegerField(blank=True, editable=False, null=True)),
-                ('question', models.CharField(max_length=300)),
-                ('answer', models.TextField()),
-                ('page', modelcluster.fields.ParentalKey(on_delete=django.db.models.deletion.CASCADE, related_name='faqs', to='core.servicepage')),
-            ],
-            options={
-                'ordering': ['sort_order'],
-                'abstract': False,
+                "ordering": ["title"],
             },
         ),
         migrations.CreateModel(
-            name='BulletPointItem',
+            name="ServiceListingPage",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('sort_order', models.IntegerField(blank=True, editable=False, null=True)),
-                ('title', models.CharField(max_length=200)),
-                ('text', models.TextField()),
-                ('page', modelcluster.fields.ParentalKey(on_delete=django.db.models.deletion.CASCADE, related_name='bullet_points', to='core.servicepage')),
+                (
+                    "page_ptr",
+                    models.OneToOneField(
+                        auto_created=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        parent_link=True,
+                        primary_key=True,
+                        serialize=False,
+                        to="wagtailcore.page",
+                    ),
+                ),
             ],
             options={
-                'ordering': ['sort_order'],
-                'abstract': False,
+                "abstract": False,
+            },
+            bases=("wagtailcore.page",),
+        ),
+        migrations.CreateModel(
+            name="FeatureItem",
+            fields=[
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "sort_order",
+                    models.IntegerField(blank=True, editable=False, null=True),
+                ),
+                ("title", models.CharField(max_length=200)),
+                ("text", models.TextField()),
+                (
+                    "page",
+                    modelcluster.fields.ParentalKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="features",
+                        to="core.aboutacspage",
+                    ),
+                ),
+            ],
+            options={
+                "ordering": ["sort_order"],
+                "abstract": False,
+            },
+        ),
+        migrations.CreateModel(
+            name="FAQ",
+            fields=[
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("question", models.CharField(max_length=300)),
+                ("answer", models.TextField()),
+                (
+                    "service",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="faqs",
+                        to="core.service",
+                    ),
+                ),
+            ],
+        ),
+        migrations.CreateModel(
+            name="BulletPoint",
+            fields=[
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=200)),
+                ("text", models.TextField()),
+                (
+                    "service",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="bullet_points",
+                        to="core.service",
+                    ),
+                ),
+            ],
+        ),
+        migrations.CreateModel(
+            name="ServicePage",
+            fields=[
+                (
+                    "page_ptr",
+                    models.OneToOneField(
+                        auto_created=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        parent_link=True,
+                        primary_key=True,
+                        serialize=False,
+                        to="wagtailcore.page",
+                    ),
+                ),
+                ("subtitle", models.CharField(max_length=255)),
+                ("intro_heading", models.CharField(max_length=255)),
+                ("intro_body", models.TextField()),
+                ("why_heading", models.CharField(max_length=255)),
+                ("why_body", models.TextField()),
+                (
+                    "image",
+                    models.ForeignKey(
+                        blank=True,
+                        help_text="Service image",
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        related_name="+",
+                        to="wagtailimages.image",
+                    ),
+                ),
+            ],
+            options={
+                "abstract": False,
+            },
+            bases=("wagtailcore.page",),
+        ),
+        migrations.CreateModel(
+            name="FrequentlyAskedQuestion",
+            fields=[
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "sort_order",
+                    models.IntegerField(blank=True, editable=False, null=True),
+                ),
+                ("question", models.CharField(max_length=300)),
+                ("answer", models.TextField()),
+                (
+                    "page",
+                    modelcluster.fields.ParentalKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="faqs",
+                        to="core.servicepage",
+                    ),
+                ),
+            ],
+            options={
+                "ordering": ["sort_order"],
+                "abstract": False,
+            },
+        ),
+        migrations.CreateModel(
+            name="BulletPointItem",
+            fields=[
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "sort_order",
+                    models.IntegerField(blank=True, editable=False, null=True),
+                ),
+                ("title", models.CharField(max_length=200)),
+                ("text", models.TextField()),
+                (
+                    "page",
+                    modelcluster.fields.ParentalKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="bullet_points",
+                        to="core.servicepage",
+                    ),
+                ),
+            ],
+            options={
+                "ordering": ["sort_order"],
+                "abstract": False,
             },
         ),
     ]
