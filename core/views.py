@@ -5,15 +5,6 @@ from django.shortcuts import render, redirect
 from .forms import ServiceRequestForm
 
 
-class HomeView(TemplateView):
-    template_name = "core/home_page.html"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["services"] = Service.objects.all()
-        return context
-
-
 class AboutView(TemplateView):
     template_name = "core/about_acs_page.html"
 
@@ -50,45 +41,3 @@ class AboutView(TemplateView):
         context["features"] = features
 
         return context
-
-
-class ServiceListView(ListView):
-    template_name = "core/services/list.html"
-    model = Service
-    context_object_name = "services"
-
-
-class ServiceDetailView(DetailView):
-    template_name = "core/services/templates/core/service_page.html"
-    model = Service
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["services"] = Service.objects.filter().exclude(id=self.object.id)
-        return context
-
-
-def contact(request):
-    if request.method == "POST":
-        form = ServiceRequestForm(request.POST)
-        if form.is_valid():
-            # TODO: send email / save to DB / create ticket
-            messages.success(
-                request, "Thanks for submitting! We’ll be in touch shortly."
-            )
-            return redirect("contact")  # PRG pattern
-        else:
-            messages.error(request, "Please fix the errors below and resubmit.")
-    else:
-        form = ServiceRequestForm()
-
-    return render(
-        request,
-        "core/contact_acs_page.html",
-        {"form": form, "services": Service.objects.all()},
-    )
-
-
-def payments(request):
-    context = {"services": Service.objects.all()}
-    return render(request, "core/payment_page.html", context=context)
