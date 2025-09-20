@@ -1,10 +1,21 @@
 from django.db import models
 from modelcluster.fields import ParentalKey
 from wagtail.admin.panels import FieldPanel, InlinePanel
+from wagtail.fields import StreamField
 from wagtail.models import Page, Orderable
+
+from core.blocks import HeroWithBulletsBlock
 
 
 class HomePage(Page):
+    body = StreamField([
+        ("hero_with_bullets", HeroWithBulletsBlock()),
+    ], null=True, blank=True)
+
+    content_panels = Page.content_panels + [
+        FieldPanel("body")
+    ]
+
     max_count = 1
     subpage_types = [
         "core.AboutACSPage",
@@ -14,6 +25,7 @@ class HomePage(Page):
 
 class AboutACSPage(Page):
     max_count = 1
+    parent_page_types = ["core.HomePage"]
     subpage_types = []
 
     content_panels = Page.content_panels + [
@@ -24,11 +36,13 @@ class AboutACSPage(Page):
 class ContactACSPage(Page):
     max_count = 1
     subpage_types = []
+    parent_page_types = ["core.HomePage"]
 
 
 class PaymentPage(Page):
     max_count = 1
     subpage_types = []
+    parent_page_types = ["core.HomePage"]
 
 
 class FeatureItem(Orderable):
@@ -44,12 +58,14 @@ class FeatureItem(Orderable):
 
 class ServiceListingPage(Page):
     max_count = 1
+    parent_page_types = ["core.HomePage"]
     subpage_types = [
         "core.ServicePage",
     ]
 
 
 class ServicePage(Page):
+    parent_page_types = ["core.ServiceListingPage"]
     subpage_types = []
     subtitle = models.CharField(max_length=255)
     intro_heading = models.CharField(max_length=255)

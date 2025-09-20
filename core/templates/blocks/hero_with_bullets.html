@@ -1,0 +1,90 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+<section class="bg-base-100">
+  <div class="max-w-7xl mx-auto px-6 py-16 grid lg:grid-cols-2 gap-12 items-center">
+    <div>
+        {% if self.tagline %}
+      <p class="inline-flex items-center gap-3 text-sm text-primary font-medium mb-4">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="h-5 w-5 text-primary">
+        <path fill-rule="evenodd" d="M12.723 2.116a.75.75 0 01.53.92l-1.237 5.154h5.234a.75.75 0 01.565 1.226l-9 11a.75.75 0 01-1.306-.671l1.238-5.154H3.75a.75.75 0 01-.565-1.226l9-11a.75.75 0 01.538-.249z" clip-rule="evenodd" />
+        </svg>
+     {{ self.tagline }}
+      </p>
+        {% endif %}
+
+      <h1 class="text-4xl md:text-5xl font-bold leading-tight">
+        <span class="block">{{ self.title }}</span>
+      </h1>
+      <p class="mt-6 text-lg text-base-content/80">
+          {{ self.description }}
+      </p>
+
+      <div class="mt-8 flex flex-wrap items-center gap-4">
+          {% if self.urgent_contact_phone_number and self.urgent_contact_button_text %}
+        <a href="self.urgent_contact_phone_number" class="btn btn-primary">
+            {{ self.urgent_contact_button_text }}
+        </a>
+          {% endif %}
+        <a href="#services" class="btn btn-ghost">Our Services</a>
+      </div>
+
+      <!-- quick value bullets -->
+      <ul class="mt-8 grid sm:grid-cols-2 gap-3 text-base-content/80">
+        {% for bullet in self.bullets %}
+        <li class="flex items-center gap-3"><svg class="h-5 w-5 fill-current text-success" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></svg><span><strong>{{ bullet.text }}</strong></span></li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="relative">
+      {% if self.image %}
+          {% image self.image fill-592x592 class="rounded-2xl shadow-xl w-full" %}
+      {% endif %}
+        {% if self.experience_years or self.experience_text %}
+      <div class="absolute -bottom-6 -right-4 bg-base-200 rounded-xl p-4 shadow-md hidden md:flex items-center gap-3">
+        <div class="avatar placeholder"><div class="bg-primary text-primary-content rounded-full w-10">{{ self.experience_years }}</div></div>
+        <div class="text-sm leading-tight"><span class="font-semibold">Years of experience</span><br/><span class="text-base-content/70">{{ self.experience_text }}</span></div>
+      </div>
+        {% endif %}
+    </div>
+  </div>
+</section>
+
+
+<section class="bg-base-100">
+  <div class="max-w-7xl mx-auto px-6 py-16 grid lg:grid-cols-2 gap-12 items-center">
+    <div>
+
+
+      <h1 class="text-4xl md:text-5xl font-bold leading-tight">
+        <span class="block">{{ self.title }}</span>
+      </h1>
+
+      {% if self.description %}
+        <p class="mt-6 text-lg text-base-content/80">{{ self.description }}</p>
+      {% endif %}
+
+      <div class="mt-8 flex flex-wrap items-center gap-4">
+        {% if self.primary_button_text and self.primary_button_url %}
+          <a href="{{ self.primary_button_url }}" class="btn btn-primary">
+            {{ self.primary_button_text }}
+          </a>
+        {% endif %}
+        {% if self.secondary_button_text and self.secondary_button_url %}
+          <a href="{{ self.secondary_button_url }}" class="btn btn-ghost">
+            {{ self.secondary_button_text }}
+          </a>
+        {% endif %}
+      </div>
+
+      <ul class="mt-8 grid sm:grid-cols-2 gap-3 text-base-content/80">
+        {% for bullet in self.bullets %}
+          <li class="flex items-center gap-3">
+            <svg class="h-5 w-5 fill-current text-success" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M504 256c0 ..."/></svg>
+            <span><strong>{{ bullet.text }}</strong></span>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+  </div>
+</section>
