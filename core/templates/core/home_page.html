@@ -60,7 +60,7 @@
 
     <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {% for service in services %}
-      <a class="card bg-base-100 shadow hover:shadow-lg transition" href="{% url 'services_detail' service.slug %}">
+      <a class="card bg-base-100 shadow hover:shadow-lg transition" href="#">
         <div class="card-body">
           <h3 class="card-title">{{ service.title }}</h3>
           <p>{{ service.subtitle }}</p>

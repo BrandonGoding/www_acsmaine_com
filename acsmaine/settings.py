@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 from decouple import config, Csv
 
@@ -14,9 +15,22 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    'wagtail.contrib.forms',
+    'wagtail.contrib.redirects',
+    'wagtail.embeds',
+    'wagtail.sites',
+    'wagtail.users',
+    'wagtail.snippets',
+    'wagtail.documents',
+    'wagtail.images',
+    'wagtail.search',
+    'wagtail.admin',
+    'wagtail',
     "core.apps.CoreConfig",
     "theme.apps.ThemeConfig",
     "tailwind",
+    'modelcluster',
+    'taggit',
 ]
 
 MIDDLEWARE = [
@@ -27,6 +41,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'wagtail.contrib.redirects.middleware.RedirectMiddleware',
 ]
 
 ROOT_URLCONF = "acsmaine.urls"
@@ -95,13 +110,22 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+
 LANGUAGE_CODE = "en-us"
-TIME_ZONE = "AMERICA/NEW_YORK"
+TIME_ZONE = "America/New_York"
 USE_I18N = True
 USE_TZ = True
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = "static/"
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+DATA_UPLOAD_MAX_NUMBER_FIELDS = 10_000
+
+WAGTAIL_SITE_NAME = 'ACS Maine',
+WAGTAILADMIN_BASE_URL = 'https://www.acsmaine.com'
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
 TAILWIND_APP_NAME = "theme"
+
+WAGTAILDOCS_EXTENSIONS = ['pdf']

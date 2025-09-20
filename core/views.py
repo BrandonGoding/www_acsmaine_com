@@ -6,7 +6,7 @@ from .forms import ServiceRequestForm
 
 
 class HomeView(TemplateView):
-    template_name = "core/home.html"
+    template_name = "core/home_page.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -43,7 +43,7 @@ class ServiceListView(ListView):
 
 
 class ServiceDetailView(DetailView):
-    template_name = "core/services/detail.html"
+    template_name = "core/services/templates/core/service_page.html"
     model = Service
 
     def get_context_data(self, **kwargs):
