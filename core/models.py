@@ -7,14 +7,47 @@ from wagtail.models import Page, Orderable
 class HomePage(Page):
     max_count = 1
     subpage_types = [
+        'core.AboutACSPage',
         'core.ServiceListingPage',
     ]
+
+
+class AboutACSPage(Page):
+    max_count = 1
+    subpage_types = []
+
+    content_panels = Page.content_panels + [
+        InlinePanel("features", label="Features"),
+    ]
+
+
+class ContactACSPage(Page):
+    max_count = 1
+    subpage_types = []
+
+
+class PaymentPage(Page):
+    max_count = 1
+    subpage_types = []
+
+
+class FeatureItem(Orderable):
+    page = ParentalKey(AboutACSPage, related_name="features", on_delete=models.CASCADE)
+    title = models.CharField(max_length=200)
+    text = models.TextField()
+
+    panels = [
+        FieldPanel("title"),
+        FieldPanel("text"),
+    ]
+
 
 class ServiceListingPage(Page):
     max_count = 1
     subpage_types = [
         'core.ServicePage',
     ]
+
 
 class ServicePage(Page):
     subpage_types = []
@@ -62,7 +95,7 @@ class FrequentlyAskedQuestion(Orderable):
         FieldPanel("answer"),
     ]
 
-# Create your models here.
+
 class Service(models.Model):
     title = models.CharField(max_length=200)
     subtitle = models.CharField(max_length=200)

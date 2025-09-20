@@ -15,7 +15,7 @@ class HomeView(TemplateView):
 
 
 class AboutView(TemplateView):
-    template_name = "core/about.html"
+    template_name = "core/about_acs_page.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -64,9 +64,9 @@ def contact(request):
     else:
         form = ServiceRequestForm()
 
-    return render(request, "core/contact.html", {"form": form, "services": Service.objects.all()})
+    return render(request, "core/contact_acs_page.html", {"form": form, "services": Service.objects.all()})
 
 
 def payments(request):
     context = {'services': Service.objects.all()}
-    return render(request, "core/payments.html", context=context)
+    return render(request, "core/payment_page.html", context=context)
