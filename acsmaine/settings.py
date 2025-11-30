@@ -100,8 +100,14 @@ TIME_ZONE = "America/New_York"
 USE_I18N = True
 USE_TZ = True
 
-STATIC_URL = "static/"
-
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 TAILWIND_APP_NAME = "theme"
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+STATIC_URL = "static/"
+STATIC_ROOT = "/var/www/www_acsmaine_com/static/"
+
+MEDIA_URL = "media/"
+MEDIA_ROOT = "/var/www/www_acsmaine_com/media/"
