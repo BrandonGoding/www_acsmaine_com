@@ -19,7 +19,17 @@ from django.contrib import admin
 from django.urls import path
 from core import views as website_views
 
+from django.http import HttpResponse
+from django.urls import path
+
+
+def robots_txt(request):
+    content = "User-agent: *\nDisallow: /"
+    return HttpResponse(content, content_type="text/plain")
+
+
 urlpatterns = [
+    path("robots.txt", robots_txt, name="robots_txt"),
     path("", website_views.HomeView.as_view(), name="home"),
     path("about/", website_views.AboutView.as_view(), name="about"),
     path("contact/", website_views.contact, name="contact"),
