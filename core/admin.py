@@ -34,16 +34,3 @@ class ServiceAdmin(admin.ModelAdmin):
             "fields": ("why_heading", "why_body"),
         }),
     )
-
-
-# If you also want to edit BulletPoint / FAQ separately (not required):
-@admin.register(BulletPoint)
-class BulletPointAdmin(admin.ModelAdmin):
-    list_display = ("title", "service")
-    search_fields = ("title", "text", "service__title")
-
-
-@admin.register(FAQ)
-class FAQAdmin(admin.ModelAdmin):
-    list_display = ("question", "service")
-    search_fields = ("question", "answer", "service__title")
