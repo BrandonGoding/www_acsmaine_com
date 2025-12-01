@@ -38,5 +38,5 @@ urlpatterns = [
         name="services_detail",
     ),
     path("payments/", website_views.payments, name="payments"),
-    path("admin/", admin.site.urls),
+    # path("admin/", admin.site.urls),
 ]
