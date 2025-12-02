@@ -13,8 +13,6 @@ db.sqlite3
 # Log files
 *.log
 
-# Media and Static files (if collected/generated)
-media/
 
 # Sensitive configuration files
 local_settings.py
