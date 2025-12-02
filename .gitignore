@@ -15,7 +15,6 @@ db.sqlite3
 
 # Media and Static files (if collected/generated)
 media/
-static/
 
 # Sensitive configuration files
 local_settings.py
