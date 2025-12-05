@@ -1,7 +1,57 @@
+import os
 from pathlib import Path
 from decouple import config, Csv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+
+    "formatters": {
+        "verbose": {
+            "format": "[{levelname}] {asctime} {name} | {message}",
+            "style": "{",
+        },
+    },
+
+    "handlers": {
+        "django_error_file": {
+            "level": "ERROR",
+            "class": "logging.FileHandler",
+            "filename": os.path.join(BASE_DIR, "logs/django_errors.log"),
+            "formatter": "verbose",
+        },
+        # optional: log warnings too
+        "django_warning_file": {
+            "level": "WARNING",
+            "class": "logging.FileHandler",
+            "filename": os.path.join(BASE_DIR, "logs/django_warnings.log"),
+            "formatter": "verbose",
+        },
+    },
+
+    "loggers": {
+        "django": {
+            "handlers": ["django_error_file", "django_warning_file"],
+            "level": "WARNING",
+            "propagate": True,
+        },
+        # Gunicorn errors (optional, but useful)
+        "gunicorn.error": {
+            "handlers": ["django_error_file"],
+            "level": "ERROR",
+            "propagate": True,
+        },
+        # Application-specific logs (e.g., ACS app)
+        "acs": {
+            "handlers": ["django_error_file"],
+            "level": "ERROR",
+            "propagate": True,
+        },
+    },
+}
+
 
 SECRET_KEY = config("SECRET_KEY")
 DEBUG = config('DEBUG', default=True, cast=bool)
