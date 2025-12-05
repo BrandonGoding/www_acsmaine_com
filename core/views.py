@@ -5,6 +5,60 @@ from django.shortcuts import render, redirect
 from .forms import ServiceRequestForm
 
 
+from django.conf import settings
+from django.core.mail import send_mail
+
+
+def send_service_request_email(cleaned_data):
+    """
+    Send an email to you (and optionally a confirmation to the customer)
+    when a new service request is submitted.
+    """
+    # Extract fields safely from the form
+    name = cleaned_data.get("name")
+    service_address = cleaned_data.get("service_address")
+    phone = cleaned_data.get("phone")
+    email = cleaned_data.get("email")  # could be a FK or choice field
+    work_desired = cleaned_data.get("work_desired")
+
+    subject = f"New service request from {name or 'Unknown'}"
+    recipient_list = [settings.CONTACT_EMAIL]  # set this in your settings.py
+    from_email = getattr(settings, "DEFAULT_FROM_EMAIL", None)
+
+    body = (
+        f"New service request:\n\n"
+        f"Name: {name}\n"
+        f"Email: {email}\n"
+        f"Phone: {phone}\n"
+        f"Service Address: {service_address}\n\n"
+        f"Work Desired:\n{work_desired}\n"
+    )
+
+    send_mail(
+        subject=subject,
+        message=body,
+        from_email=from_email,
+        recipient_list=recipient_list,
+        fail_silently=False,
+    )
+
+    # Optional: send a confirmation email back to the user
+    if email:
+        send_mail(
+            subject="We received your service request",
+            message=(
+                f"Hi {name or ''},\n\n"
+                "Thanks for reaching out! We’ve received your request and will "
+                "be in touch shortly.\n\n"
+                "— ACS Electrical Contractors"
+            ),
+            from_email=from_email,
+            recipient_list=[email],
+            fail_silently=True,
+        )
+
+
+
 class HomeView(TemplateView):
     template_name = "core/home.html"
 
@@ -57,6 +111,7 @@ def contact(request):
         form = ServiceRequestForm(request.POST)
         if form.is_valid():
             # TODO: send email / save to DB / create ticket
+            send_service_request_email(form.cleaned_data)
             messages.success(request, "Thanks for submitting! We’ll be in touch shortly.")
             return redirect("contact")  # PRG pattern
         else:
